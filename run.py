@@ -24,6 +24,7 @@ def import_models(database) -> None:
 
 @app.route("/")
 def home():
+    # testing integration
     return "this is a data processing node"
 
 
