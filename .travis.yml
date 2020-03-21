@@ -1,0 +1,21 @@
+language: python
+python:
+  - 3.6
+
+install: pip install -r requirements.txt
+before_script: export PYTHONPATH=$PYTHONPATH:$(pwd)/src
+
+#env:
+#  global:
+#    - DOCKER_COMPOSE_VERSION=1.23.2
+#    - secure: "secure key"
+#    - secure: "secure key"
+
+jobs:
+  include:
+    script:
+      - python -m unittest discover tests
+      - docker-compose build redis
+      - docker-compose build mysql
+      - docker-compose build flask
+      - docker-compose build nginx
