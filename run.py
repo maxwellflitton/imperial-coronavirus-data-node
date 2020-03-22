@@ -5,14 +5,14 @@ from src.views.user import user_views
 from src.config import GlobalParams
 
 
-app = Flask(__name__, template_folder='src/templates')
+app = Flask(__name__, template_folder='./src/templates', static_folder="./src/static")
 app.config['SECRET_KEY'] = 'mysecretkey'
 # login = LoginManager(app)
 
 
 @app.route("/")
 def home():
-    return "this is a data processing node"
+    return render_template("base.html")
 
 
 @app.route("/createdb")
