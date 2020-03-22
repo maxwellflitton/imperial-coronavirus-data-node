@@ -1,0 +1,17 @@
+body {
+    background-color: #525252;
+}
+
+.container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #b8b8b8;
+        border-radius: 15px;
+    }
+
+.containerTitle {
+    /*margin: 0 auto;*/
+    text-align: center;
+    color: #f5f5f5;
+}

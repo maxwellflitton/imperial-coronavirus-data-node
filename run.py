@@ -9,7 +9,7 @@ from src.models.user import User
 from src.database import DbEngine
 
 
-app = Flask(__name__, template_folder='src/templates')
+app = Flask(__name__, template_folder='./src/templates', static_folder="./src/static")
 db = DbEngine()
 
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -19,7 +19,7 @@ app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 
 @app.route("/")
 def home():
-    return "this is a data processing node"
+    return render_template("base.html")
 
 
 @app.route("/createdb")
