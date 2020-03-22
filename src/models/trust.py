@@ -12,3 +12,6 @@ class Trust(DbEngine.BASE):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(120))
+
+    def __repr__(self) -> str:
+        return "<Trust: {}>".format(self.name)

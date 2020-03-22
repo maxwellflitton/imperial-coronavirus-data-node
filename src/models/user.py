@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash
 from uuid import uuid4
 
@@ -20,6 +21,7 @@ class User(DbEngine.BASE):
     password = Column(String(128))
     admin = Column(Boolean(), default=False)
     trust_id = Column(Integer, ForeignKey("trusts.id"), nullable=False)
+    trust = relationship('Trust')
 
     @staticmethod
     def hash_password(password: str) -> str:
@@ -52,5 +54,5 @@ class User(DbEngine.BASE):
         database.session.add(self)
         database.session.commit()
 
-    def __repr__(self):
-        return "<User {}>".format(self.username)
+    def __repr__(self) -> str:
+        return "<User: {}>".format(self.username)
