@@ -1,1 +1,3 @@
 DB_URL: "sqlite:///test.db"
+MYSQL_DB_URL: "mysql+pymysql://user:password@localhost/db"
+DB_ECHO: true
