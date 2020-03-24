@@ -1,0 +1,3 @@
+DB_URL: "sqlite:///test.db"
+DB_ECHO: true
+REDIS: false

@@ -20,7 +20,7 @@ class DbEngine(metaclass=Singleton):
         """
         The constructor for the DbEngine class.
         """
-        self.engine = create_engine(params.get("MYSQL_DB_URL"), echo=True)
+        self.engine = create_engine(params.get("DB_URL"), echo=True)
         self.session = sessionmaker(bind=self.engine)()
 
     def create_tables(self):
