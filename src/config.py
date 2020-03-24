@@ -24,7 +24,7 @@ class GlobalParams(dict, metaclass=Singleton):
         """
         file_name = sys.argv[-1]
         if file_name == "tests":
-            file_name = "dev_tools/config.yml"
+            file_name = "dev_tools/lite_config.yml"
         with open(file_name) as file:
             data = yaml.load(file, Loader=yaml.FullLoader)
         return data
