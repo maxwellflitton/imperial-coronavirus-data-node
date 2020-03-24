@@ -16,3 +16,4 @@ This is a repo for managing the build and serving of a server that processes dat
 - Run all unit tests: bash script => ```scripts/run_unit_tests.sh```
 - Run dev environment: bash script => ```scripts/run_dev_docker.sh```
 - Run dev server: bash script => ```scripts/run_dev_app.sh```
+- Run lite dev server (no need for docker just python) => ```scripts/run_lite_dev_app.sh```
