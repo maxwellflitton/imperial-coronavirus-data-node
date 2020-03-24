@@ -7,6 +7,7 @@ from src.views.user import user_views
 from src.models.trust import Trust
 from src.models.user import User
 from src.database import DbEngine
+from src.forms import LoginForm
 
 
 app = Flask(__name__, template_folder='./src/templates', static_folder="./src/static")
@@ -14,13 +15,17 @@ db = DbEngine()
 
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
-# login = LoginManager(app)
+login = LoginManager(app)
 
 
 @app.route("/")
 def home():
     return render_template("base.html")
 
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template("login.html", form=form)
 
 @app.route("/createdb")
 def create():
