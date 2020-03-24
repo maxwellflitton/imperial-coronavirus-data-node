@@ -17,6 +17,9 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 login = LoginManager(app)
 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 @app.route("/")
 def home():

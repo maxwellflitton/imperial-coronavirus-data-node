@@ -55,4 +55,3 @@ class User(DbEngine.BASE):
 
     def __repr__(self) -> str:
         return "<User: {}>".format(self.username)
-
