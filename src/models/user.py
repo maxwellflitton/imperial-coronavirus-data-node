@@ -5,7 +5,6 @@ from uuid import uuid4
 
 from src.database import DbEngine
 
-
 class User(DbEngine.BASE):
     """
     This is a class for managing the User model for the database.
@@ -56,3 +55,4 @@ class User(DbEngine.BASE):
 
     def __repr__(self) -> str:
         return "<User: {}>".format(self.username)
+

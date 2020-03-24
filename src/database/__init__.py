@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 from src.config import GlobalParams
-from singleton import Singleton
+from src.singleton import Singleton
 params = GlobalParams()
 
 
