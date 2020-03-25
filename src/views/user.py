@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import request, jsonify
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 from src.models.user import User
 from src.database import DbEngine
@@ -18,12 +18,16 @@ def login():
     body = request.get_json()
     db = DbEngine()
     user_check = db.session.query(User).filter(User.username == body.get("username", "")).one_or_none()
-
     if user_check is None or user_check.check_password(password=body.get("password", "")) is False:
         return jsonify({"success": False})
 
     login_user(user_check)
     return jsonify({"success": True})
+
+
+@user_views.route("/dashboard", methods=['GET'])
+def dashboard():
+    return "authenticated: {}".format(current_user.is_authenticated)
 
 
 @user_views.route("/create/<username>/<email>/<password>", methods=['GET', 'POST'])

@@ -15,7 +15,13 @@ db = DbEngine()
 
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
-# login = LoginManager(app)
+login = LoginManager(app)
+
+
+@login.user_loader
+def load_user(id):
+    user = db.session.query(User).filter(User.id == id).one_or_none()
+    return user
 
 
 @app.route("/")

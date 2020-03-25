@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from uuid import uuid4
 
@@ -39,9 +39,7 @@ class User(UserMixin, DbEngine.BASE):
         :param password: (str) password to be checked
         :return: True is matched => False if not
         """
-        if self.hash_password(password=password) == self.password:
-            return True
-        return False
+        return check_password_hash(self.password, password)
 
     def save_instance(self) -> None:
         """
