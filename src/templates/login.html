@@ -7,10 +7,11 @@
         <div class="Container">
             <h2 class="ContainerTitle">Login</h2>
             <form action="submit">
-              <input type="text" id="fname" name="fname" value="" placeholder="Username" class="Input"><br>
-              <input type="text" id="lname" name="lname" value="" placeholder="Password" class="Input"><br><br>
-              <input type="submit" value="Submit" class="button">
+              <input type="text" value="" placeholder="Username" class="Input" id="defaultLoginFormEmail"><br>
+              <input type="text" value="" placeholder="Password" class="Input" id="defaultLoginFormPassword"><br><br>
+              <input type="button" value="Submit" class="button" id="loginButton">
             </form>
         </div>
     </body>
+    <script src="{{ url_for('static',filename='/javascript/login.js') }}"></script>
 </html>

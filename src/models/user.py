@@ -1,12 +1,13 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash
+from flask_login import UserMixin
 from uuid import uuid4
 
 from src.database import DbEngine
 
 
-class User(DbEngine.BASE):
+class User(UserMixin, DbEngine.BASE):
     """
     This is a class for managing the User model for the database.
     """
