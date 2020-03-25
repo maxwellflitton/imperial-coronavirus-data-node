@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <link rel="stylesheet" href= "{{ url_for('static',filename='dashboard.css') }}">
+    </head>
+    <body>
+        <ul class="ul">
+          <li><a href="/users/logout">Logout</a></li>
+          <li><a href="news.asp">News</a></li>
+          <li><a href="contact.asp">Contact</a></li>
+          <li><a href="about.asp">About</a></li>
+          <li><a href="about.asp">New Entry</a></li>
+          <li><a href="about.asp">Followup Entry</a></li>
+          <li class="ProfileTag">{{ user.username }}</li>
+        </ul>
+    </body>
+</html>

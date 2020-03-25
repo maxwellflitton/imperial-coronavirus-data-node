@@ -1,6 +1,6 @@
 from flask import Blueprint
-from flask import request, jsonify
-from flask_login import login_user, current_user
+from flask import request, jsonify, redirect, url_for, render_template
+from flask_login import login_user, current_user, logout_user
 
 from src.models.user import User
 from src.database import DbEngine
@@ -25,9 +25,17 @@ def login():
     return jsonify({"success": True})
 
 
+@user_views.route("/logout", methods=['GET'])
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+
 @user_views.route("/dashboard", methods=['GET'])
 def dashboard():
-    return "authenticated: {}".format(current_user.is_authenticated)
+    if current_user.is_authenticated:
+        return render_template("dashboard.html", user=current_user)
+    return redirect(url_for('home'))
 
 
 @user_views.route("/create/<username>/<email>/<password>", methods=['GET', 'POST'])
