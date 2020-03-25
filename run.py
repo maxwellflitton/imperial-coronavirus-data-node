@@ -4,6 +4,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager
 
 from src.views.user import user_views
+from src.views.admin import TrustView, UserView
 from src.models.trust import Trust
 from src.models.user import User
 from src.database import DbEngine
@@ -34,8 +35,8 @@ def create():
 
 app.register_blueprint(user_views, url_prefix="/users")
 admin = Admin(app, name='Admin Panel', template_mode='bootstrap3')
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Trust, db.session))
+admin.add_view(UserView(User, db.session))
+admin.add_view(TrustView(Trust, db.session))
 
 
 if __name__ == "__main__":
