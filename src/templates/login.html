@@ -1,0 +1,18 @@
+<html>
+    <head>
+<!--        https://www.w3schools.com/colors/colors_palettes.asp-->
+        <link rel="stylesheet" href= "{{ url_for('static',filename='login.css') }}">
+    </head>
+    <body>
+        <div class="Container">
+            <h2 class="ContainerTitle">Login</h2>
+            <p id="loginMessage" class="FeedbackMessage"></p>
+            <form action="submit">
+              <input type="text" value="" placeholder="Username" class="Input" id="defaultLoginFormEmail"><br>
+              <input type="text" value="" placeholder="Password" class="Input" id="defaultLoginFormPassword"><br><br>
+              <input type="button" value="Submit" class="button" id="loginButton">
+            </form>
+        </div>
+    </body>
+    <script src="{{ url_for('static',filename='/javascript/login.js') }}"></script>
+</html>

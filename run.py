@@ -20,7 +20,7 @@ app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("login.html")
 
 
 @app.route("/createdb")
