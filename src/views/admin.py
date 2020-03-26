@@ -24,7 +24,8 @@ class UserView(ModelView):
         :return: (User) model with attributes to be saved
         """
         new_user = User(username=form.data["username"], email=form.data["email"], password=form.data["password"],
-                        admin=form.data["admin"], trust_id=form.data["trust"].id)
+                        admin=form.data["admin"], trust_id=form.data["trust"].id, first_name=form.data["first_name"],
+                        second_name=form.data["second_name"])
         new_user.save_instance()
         return new_user
 
@@ -42,6 +43,8 @@ class UserView(ModelView):
         model.username = form.data["username"]
         model.email = form.data["email"]
         model.admin = form.data["admin"]
+        model.first_name = form.data["first_name"]
+        model.second_name = form.data["second_name"]
         model.trust_id = form.data["trust"].id
 
         if form.data["password"] != user_from_db.password:

@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
+from flask_mail import Mail
 from flask_login import LoginManager
 
 from src.views.user import user_views
@@ -16,6 +16,7 @@ db = DbEngine()
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 login = LoginManager(app)
+mail = Mail(app)
 
 
 @login.user_loader

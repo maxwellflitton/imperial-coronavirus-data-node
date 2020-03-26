@@ -16,8 +16,11 @@ class User(UserMixin, DbEngine.BASE):
 
     id = Column(Integer, primary_key=True)
     unique_id = Column(String(120), unique=True)
+    link_id = Column(String(120), unique=True, nullable=True)
     credit_amount = Column(Integer, default=0, nullable=False)
     username = Column(String(80), unique=True, nullable=False)
+    first_name = Column(String(80), nullable=False)
+    second_name = Column(String(80), nullable=False)
     email = Column(String(120), unique=True, nullable=False)
     password = Column(String(128))
     admin = Column(Boolean(), default=False)
